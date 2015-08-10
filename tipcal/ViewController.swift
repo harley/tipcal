@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tipField: UILabel!
     @IBOutlet weak var totalField: UILabel!
+    @IBOutlet weak var tipControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +28,15 @@ class ViewController: UIViewController {
     
     @IBAction func onEditingChanged(sender: AnyObject) {
         var billingAmount = (billField.text as NSString).doubleValue
-        var tipPercent = 0.20
+        var tipPercentages = [0.18, 0.20, 0.22]
+        var tipPercent = tipPercentages[tipControl.selectedSegmentIndex]
         var tipAmount = billingAmount * tipPercent
         var totalAmount = billingAmount + tipAmount
         
         tipField.text = String(format: "$%.2f", tipAmount)
         totalField.text = String(format: "$%.2f", totalAmount)
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
