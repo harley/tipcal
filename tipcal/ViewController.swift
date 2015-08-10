@@ -53,6 +53,21 @@ class ViewController: UIViewController {
         var defaults = NSUserDefaults.standardUserDefaults()
         var tipControlIndex = defaults.integerForKey("defaultTipControlIndex")
         tipControl.selectedSegmentIndex = tipControlIndex
+        if let percentages = defaults.dictionaryForKey("defaultTipPercentages") {
+            let val0 = percentages["poorPercentage"] as! String
+            let segment0 = "\(val0)%"
+        
+            let val1 =  percentages["okPercentage"] as! String
+            let segment1 = "\(val1)%"
+            
+            let val2 =  percentages["goodPercentage"] as! String
+            let segment2 = "\(val2)%"
+            
+            
+            tipControl.setTitle(segment0, forSegmentAtIndex: 0)
+            tipControl.setTitle(segment1, forSegmentAtIndex: 1)
+            tipControl.setTitle(segment2, forSegmentAtIndex: 2)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

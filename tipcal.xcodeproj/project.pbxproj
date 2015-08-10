@@ -417,6 +417,7 @@
 				9D3D583A1B774B3400C989A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D3D583B1B774B3400C989A6 /* Build configuration list for PBXNativeTarget "tipcalTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +426,7 @@
 				9D3D583D1B774B3400C989A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

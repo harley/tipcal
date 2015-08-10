@@ -76,9 +76,6 @@
                                     <segment title="20%"/>
                                     <segment title="22%"/>
                                 </segments>
-                                <connections>
-                                    <action selector="onEditingChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="kPl-1f-G0u"/>
-                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -113,13 +110,14 @@
         <!--Settings View Controller-->
         <scene sceneID="4Vd-pd-c7r">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Imz-aM-1by" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Mr9-MH-WF4" customClass="SettingsViewController" customModule="tipcal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mzn-tl-iDY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default tip percentage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z3h-Kt-tHZ">
-                                <rect key="frame" x="16" y="93" width="170" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default tip preference" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z3h-Kt-tHZ">
+                                <rect key="frame" x="16" y="93" width="165" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -133,19 +131,75 @@
                                     <segment title="20%"/>
                                     <segment title="22%"/>
                                 </segments>
-                                <connections>
-                                    <action selector="onChanged:" destination="Mr9-MH-WF4" eventType="valueChanged" id="dWQ-b0-9RF"/>
-                                </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% for Poor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U0p-Wc-2ct">
+                                <rect key="frame" x="11" y="203" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% for Good" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JLH-S2-oEr">
+                                <rect key="frame" x="11" y="278" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="18" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="ov4-1j-7j6">
+                                <rect key="frame" x="207" y="194" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="updateTipSettingControl:" destination="Mr9-MH-WF4" eventType="editingChanged" id="Cet-dk-dye"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="20" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="aaL-ao-PSr">
+                                <rect key="frame" x="207" y="232" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="updatePoor:" destination="Mr9-MH-WF4" eventType="editingChanged" id="5hH-V3-H7W"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="22" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="eZv-fL-pic">
+                                <rect key="frame" x="207" y="269" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="onEditingChanged:" destination="Mr9-MH-WF4" eventType="editingChanged" id="vJE-Ya-d09"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% for OK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4lM-0m-VWp">
+                                <rect key="frame" x="11" y="241" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="izU-LU-BWV" appends="YES" id="Kx2-2s-OwO"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Lm4-d2-Zrr"/>
                     <connections>
+                        <outlet property="goodField" destination="eZv-fL-pic" id="2AF-1g-7pO"/>
+                        <outlet property="okField" destination="aaL-ao-PSr" id="lhc-vE-ujx"/>
+                        <outlet property="poorField" destination="ov4-1j-7j6" id="GxO-YN-ViV"/>
                         <outlet property="tipSettingControl" destination="an1-Zt-qA9" id="113-tW-O4A"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Imz-aM-1by" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="izU-LU-BWV">
+                    <connections>
+                        <action selector="onTap:" destination="Mr9-MH-WF4" id="n1D-5d-tNj"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="486" y="1078"/>
         </scene>
