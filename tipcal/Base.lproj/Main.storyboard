@@ -54,7 +54,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="jqK-I7-HEr">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="22" id="jqK-I7-HEr">
                                 <rect key="frame" x="143" y="122" width="161" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -96,9 +96,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billField" destination="jqK-I7-HEr" id="Sj0-9V-qRh"/>
+                        <outlet property="dividerView" destination="hBq-UT-Ang" id="cxm-Xf-N8X"/>
                         <outlet property="tipControl" destination="2Rl-Wp-XaN" id="frg-YA-QrW"/>
                         <outlet property="tipField" destination="d5E-mK-nSw" id="Nch-An-7vX"/>
+                        <outlet property="tipLabel" destination="tWY-JQ-QnR" id="Dy3-dX-vUZ"/>
                         <outlet property="totalField" destination="Ndf-Fs-1OM" id="OTD-vg-eMa"/>
+                        <outlet property="totalLabel" destination="pIU-4K-NCN" id="1Vt-ya-UXf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

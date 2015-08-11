@@ -12,20 +12,25 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var billField: UITextField!
     
+    @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var tipField: UILabel!
     @IBOutlet weak var totalField: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    @IBOutlet weak var dividerView: UIView!
+    @IBOutlet weak var totalLabel: UILabel!
     var tipPercentages:[Double] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        hideFields()
         
         tipField.text = "$0.00"
         totalField.text = "$0.00"
      
         loadSettings()
+        
     }
     
     
@@ -37,6 +42,29 @@ class ViewController: UIViewController {
         
         tipField.text = String(format: "$%.2f", tipAmount)
         totalField.text = String(format: "$%.2f", totalAmount)
+        
+        if billField.text.isEmpty {
+            UIView.animateWithDuration(0.5, animations: { self.hideFields() })
+        }
+        else {
+            UIView.animateWithDuration(1.5, animations: { self.showFields() })
+        }
+    }
+    
+    func hideFields() {
+        self.tipControl.alpha = 0
+        self.tipField.alpha = 0
+        self.tipLabel.alpha = 0
+        self.dividerView.alpha = 0
+        self.totalLabel.alpha = 0
+    }
+    
+    func showFields() {
+        self.tipControl.alpha = 1
+        self.tipField.alpha = 1
+        self.tipLabel.alpha = 1
+        self.dividerView.alpha = 1
+        self.totalLabel.alpha = 1
     }
 
 
