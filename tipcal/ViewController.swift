@@ -16,20 +16,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalField: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    var tipPercentages:[Double] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         tipField.text = "$0.00"
-        totalField.text = "$100.00"
+        totalField.text = "$0.00"
      
         loadSettings()
     }
     
     
-    @IBAction func onEditingChanged(snder: AnyObject) {
+    @IBAction func onEditingChanged(sender: AnyObject) {
         var billingAmount = (billField.text as NSString).doubleValue
-        var tipPercentages = [0.18, 0.20, 0.22]
         var tipPercent = tipPercentages[tipControl.selectedSegmentIndex]
         var tipAmount = billingAmount * tipPercent
         var totalAmount = billingAmount + tipAmount
@@ -54,19 +55,21 @@ class ViewController: UIViewController {
         var tipControlIndex = defaults.integerForKey("defaultTipControlIndex")
         tipControl.selectedSegmentIndex = tipControlIndex
         if let percentages = defaults.dictionaryForKey("defaultTipPercentages") {
-            let val0 = percentages["poorPercentage"] as! String
+            let val0 = percentages["poorPercentage"] as! NSString
             let segment0 = "\(val0)%"
         
-            let val1 =  percentages["okPercentage"] as! String
+            let val1 =  percentages["okPercentage"] as! NSString
             let segment1 = "\(val1)%"
             
-            let val2 =  percentages["goodPercentage"] as! String
+            let val2 =  percentages["goodPercentage"] as! NSString
             let segment2 = "\(val2)%"
             
-            
+            tipPercentages = [val0.doubleValue * 0.01, val1.doubleValue * 0.01, val2.doubleValue * 0.01]
             tipControl.setTitle(segment0, forSegmentAtIndex: 0)
             tipControl.setTitle(segment1, forSegmentAtIndex: 1)
             tipControl.setTitle(segment2, forSegmentAtIndex: 2)
+            
+            onEditingChanged(tipControl)
         }
     }
     
