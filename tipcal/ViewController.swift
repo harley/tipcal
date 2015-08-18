@@ -19,22 +19,21 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var dividerView: UIView!
     @IBOutlet weak var totalLabel: UILabel!
-    var tipPercentages:[Double] = []
+    var tipPercentages:[Double] = [0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         hideFields()
-        
         tipField.text = "$0.00"
         totalField.text = "$0.00"
-     
-        loadSettings()
         
+        loadSettings()
     }
     
     
     @IBAction func onEditingChanged(sender: AnyObject) {
+        println("onEditingChanged")
         var billingAmount = (billField.text as NSString).doubleValue
         var tipPercent = tipPercentages[tipControl.selectedSegmentIndex]
         var tipAmount = billingAmount * tipPercent
